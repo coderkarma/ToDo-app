@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css?family=Kumar+One+Outline|Rubik');
+
+body {
+    font-family: 'Rubik', sans-serif;
+    background-color: #ecf0f1;
+}
+
+#container {
+    width: 700px;
+    margin: 0 auto;
+    background-color: #2980b9;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+#logo {
+    display: inline-block;
+}
+
+#login {
+    display: inline-block;
+    width: 100px;
+}
+
+header {
+    height: 150px;
+}
+
+header h1 {
+    display: inline-block;
+    text-align: center;
+    font-family: 'Kumar One Outline', sans-serif;
+    color: #ecf0f1;
+    font-size: 200%;
+    width: 400px;
+}
+
+#login p {
+    font-size: 12px;
+    color: white;
+}
+
+main h2 {
+    font-size: 36px;
+    text-transform: uppercase;
+    text-decoration: underline;
+    text-align: right;
+    color: white;
+}
+
+#todo-create {
+    background-color: #bdc3c7;
+    padding: 12px;
+    color: #2980b9;
+    border-radius: 10px;
+}
+
+#todo-create input {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #7f8c8d;
+    margin-left: 20px;
+}
+
+#todo-create button {
+    color: white;
+    width: 30px;
+    height: 30px;
+    padding: 5px;
+    border-radius: 50%;
+    font-size: 18px;
+    background-color: #2980b9;
+    margin-left: 20px;
+    border: none;
+    outline:none;
+    
+}
+
+footer {
+    background-color: #ecf0f1;
+    padding: 5px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+#todo-list ul li{
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #3498db;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    font-size: 24px;
+    color: white;
+}
+
+#todo-list ul li button {
+    float: right;
+    background-color: white;
+    padding: 5px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    margin-left: 5px;
+}
+
+#todo-list ul {
+    list-style-type: none;
+}
+
+footer p {
+    color:  #2980b9;
+}
