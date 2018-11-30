@@ -2,13 +2,13 @@
 
 body {
     font-family: 'Rubik', sans-serif;
-    background-color: #ecf0f1;
+    background-color: #0C331E;
 }
 
 #container {
     width: 700px;
     margin: 0 auto;
-    background-color: #2980b9;
+    background-color: gray;
     padding: 20px;
     border-radius: 10px;
 }
@@ -29,10 +29,12 @@ header {
 header h1 {
     display: inline-block;
     text-align: center;
-    font-family: 'Kumar One Outline', sans-serif;
+    /*font-family: 'Kumar One Outline', sans-serif;*/
     color: #ecf0f1;
     font-size: 200%;
     width: 400px;
+    font-family: monospace;
+   
 }
 
 #login p {
@@ -49,7 +51,7 @@ main h2 {
 }
 
 #todo-create {
-    background-color: #bdc3c7;
+    background-color: #eee;
     padding: 12px;
     color: #2980b9;
     border-radius: 10px;
