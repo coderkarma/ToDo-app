@@ -1,4 +1,6 @@
-let fs = require("fs");
+//
+
+
 let bodyParser = require("body-parser");
 let express = require("express");
 const crypto = require("crypto");
@@ -60,7 +62,7 @@ function getTasksFromDB() {
             return -1;
         }
         else {
-            console.log(result);
+            //console.log(result);
             return result;
         }
     });
@@ -77,7 +79,7 @@ app.post("/fetchTasks", function(request, response) {
             console.log("Something went wrong!");
         }
         else {
-            console.log(result);
+            //console.log(result);
             response.send(result);
         }
     });
@@ -87,7 +89,7 @@ app.post("/fetchTasks", function(request, response) {
 app.post("/newTask", function(request, response) {
 
     let newTask = request.body;
-
+        console.log(newTask);
     let newTaskForDB = {
         "text": newTask.task,
         "status": "new",
@@ -108,7 +110,7 @@ app.post("/newTask", function(request, response) {
                     console.log("Something went wrong!");
                 }
                 else {
-                    console.log(result);
+                    //console.log(result);
                     response.send(result);
                 }
             });
@@ -119,21 +121,56 @@ app.post("/newTask", function(request, response) {
 app.post("/deleteTask", function(request, response) {
 
     let recievedData = request.body;
+    
+    console.log(recievedData);
+    
     let taskToDelete = recievedData.taskId;
-
-     TodoModel.deleteOne({taskId: taskToDelete}, (error, result) => {
-        if(error){
-            console.log("something went wrong with delete");
+    
+    console.log(taskToDelete);
+    
+    TodoModel.deleteOne({taskId: taskToDelete}, function (error, result) {
+        
+        console.log(result);
+        
+        if (error) {
+            console.log("something went wrong with delete!");
         } else {
-            TodoModel.find({}, (error, result) => {
-                if(error){
-                    console.log("could not find the list of tasks");
+            TodoModel.find({}, function (error, result) {
+                
+                if (error) {
+                    console.log("could not find list of tasks.");
                 } else {
                     response.send(result);
                 }
+                
             });
-         
         }
-     });
+    });
+});
 
+
+app.post("/updateTask", function (request, response) {
+    
+    let receivedData = request.body;
+    let taskToUpdate = receivedData.taskId;
+    
+    TodoModel.findOneAndUpdate({"taskId": taskToUpdate}, {"text": receivedData.task}, {"upsert": true}, function (error, result) {
+        
+        if (error) {
+            
+        } else {
+             TodoModel.find({}, function (error, result) {
+                
+                if (error) {
+                    console.log("could not find list of tasks.");
+                } else {
+                    response.send(result);
+                }
+                
+            });
+        }
+        
+        
+    });
+    
 });
